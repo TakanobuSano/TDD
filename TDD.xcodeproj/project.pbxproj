@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		2C149A76281E456600A0A0C8 /* GitHubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C149A75281E456600A0A0C8 /* GitHubRepository.swift */; };
 		2C149A7A281E4B8700A0A0C8 /* GithubAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C149A79281E4B8700A0A0C8 /* GithubAPIClient.swift */; };
-		2C149A7D281E6ABD00A0A0C8 /* GitHubRepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C149A7C281E6ABD00A0A0C8 /* GitHubRepositoryManager.swift */; };
-		2C149A7F281E80ED00A0A0C8 /* GitHubRepositoryManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C149A7E281E80ED00A0A0C8 /* GitHubRepositoryManagerTest.swift */; };
+		2C149A7D281E6ABD00A0A0C8 /* GitHubRepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C149A7C281E6ABD00A0A0C8 /* GitHubRepositoryViewModel.swift */; };
+		2C149A7F281E80ED00A0A0C8 /* GitHubRepositoryViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C149A7E281E80ED00A0A0C8 /* GitHubRepositoryViewModelTest.swift */; };
 		2C149A812820DF0A00A0A0C8 /* GitHubRepositoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C149A802820DF0A00A0A0C8 /* GitHubRepositoriesView.swift */; };
 		2C7B73E1281B86B200451A79 /* TDDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7B73E0281B86B200451A79 /* TDDApp.swift */; };
 		2C7B73E3281B86B200451A79 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7B73E2281B86B200451A79 /* ContentView.swift */; };
@@ -45,8 +45,8 @@
 /* Begin PBXFileReference section */
 		2C149A75281E456600A0A0C8 /* GitHubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepository.swift; sourceTree = "<group>"; };
 		2C149A79281E4B8700A0A0C8 /* GithubAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPIClient.swift; sourceTree = "<group>"; };
-		2C149A7C281E6ABD00A0A0C8 /* GitHubRepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryManager.swift; sourceTree = "<group>"; };
-		2C149A7E281E80ED00A0A0C8 /* GitHubRepositoryManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryManagerTest.swift; sourceTree = "<group>"; };
+		2C149A7C281E6ABD00A0A0C8 /* GitHubRepositoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryViewModel.swift; sourceTree = "<group>"; };
+		2C149A7E281E80ED00A0A0C8 /* GitHubRepositoryViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryViewModelTest.swift; sourceTree = "<group>"; };
 		2C149A802820DF0A00A0A0C8 /* GitHubRepositoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoriesView.swift; sourceTree = "<group>"; };
 		2C7B73DD281B86B200451A79 /* TDD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TDD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C7B73E0281B86B200451A79 /* TDDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDDApp.swift; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 		2C149A7B281E6A8900A0A0C8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				2C149A7C281E6ABD00A0A0C8 /* GitHubRepositoryManager.swift */,
+				2C149A7C281E6ABD00A0A0C8 /* GitHubRepositoryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -172,7 +172,7 @@
 			children = (
 				2C7B73F1281B86B400451A79 /* TDDTests.swift */,
 				2C7B7416281BBE6200451A79 /* DateTests.swift */,
-				2C149A7E281E80ED00A0A0C8 /* GitHubRepositoryManagerTest.swift */,
+				2C149A7E281E80ED00A0A0C8 /* GitHubRepositoryViewModelTest.swift */,
 			);
 			path = TDDTests;
 			sourceTree = "<group>";
@@ -323,7 +323,7 @@
 				2C149A812820DF0A00A0A0C8 /* GitHubRepositoriesView.swift in Sources */,
 				2C7B7415281BB9F500451A79 /* DateViewModel.swift in Sources */,
 				2C7B73E1281B86B200451A79 /* TDDApp.swift in Sources */,
-				2C149A7D281E6ABD00A0A0C8 /* GitHubRepositoryManager.swift in Sources */,
+				2C149A7D281E6ABD00A0A0C8 /* GitHubRepositoryViewModel.swift in Sources */,
 				2C7B740F281B8A5C00451A79 /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,7 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C149A7F281E80ED00A0A0C8 /* GitHubRepositoryManagerTest.swift in Sources */,
+				2C149A7F281E80ED00A0A0C8 /* GitHubRepositoryViewModelTest.swift in Sources */,
 				2C7B73F2281B86B400451A79 /* TDDTests.swift in Sources */,
 				2C7B7417281BBE6200451A79 /* DateTests.swift in Sources */,
 			);

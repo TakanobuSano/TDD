@@ -7,11 +7,17 @@
 
 import Foundation
 
-struct GitHubRepository: Codable, Equatable {
+protocol GitHubRepositoryProtocol {
+    var id: Int { get set }
+    var stargazers_count: Int { get set }
+    var name: String { get set }
+}
+
+struct GitHubRepository: Codable, Equatable, GitHubRepositoryProtocol {
     
-    let id: Int
-    let stargazers_count: Int
-    let name: String
+    var id: Int
+    var stargazers_count: Int
+    var name: String
     
 //    static func ==(lhs: GitHubRepository, rhs: GitHubRepository) -> Bool {
 //        return true

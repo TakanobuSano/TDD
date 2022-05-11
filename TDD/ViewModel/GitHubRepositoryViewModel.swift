@@ -1,5 +1,5 @@
 //
-//  GitHubRepositoryManager.swift
+//  GitHubrepositoryViewModel.swift
 //  TDD
 //
 //  Created by 佐野貴信 on 2022/05/01.
@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 
-final class GitHubRepositoryManager: ObservableObject {
+final class GitHubRepositoryViewModel: ObservableObject {
     
     @Published var majorRepositories: [GitHubRepository]?
     @Published var userName: String

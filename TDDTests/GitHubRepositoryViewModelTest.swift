@@ -1,5 +1,5 @@
 //
-//  GitHubRepositoryManagerTest.swift
+//  GitHubrepositoryViewModelTest.swift
 //  TDDTests
 //
 //  Created by 佐野貴信 on 2022/05/01.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import TDD
 
-class GitHubRepositoryManagerTest: XCTestCase {
+class GitHubrepositoryViewModelTest: XCTestCase {
     
     class MockGithubAPIClient: GithubAPIClientProtocol {
         
@@ -28,7 +28,7 @@ class GitHubRepositoryManagerTest: XCTestCase {
 
     }
 
-    var repositoryManager: GitHubRepositoryManager?
+    var repositoryViewModel: GitHubRepositoryViewModel?
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -43,7 +43,7 @@ class GitHubRepositoryManagerTest: XCTestCase {
         ]
         
         let mockAPIClient = MockGithubAPIClient(repositories: mockRepositories)
-        self.repositoryManager = GitHubRepositoryManager(client: mockAPIClient)
+        self.repositoryViewModel = GitHubRepositoryViewModel(client: mockAPIClient)
 
     }
 
@@ -69,12 +69,12 @@ class GitHubRepositoryManagerTest: XCTestCase {
     /// クロージャ
     func testFetchMajorRepositories_Closure() {
         
-        self.repositoryManager?.load(user: "apple") {_ in
-            self.repositoryManager?.fetchMajorRepositories()
-            XCTAssertEqual(self.repositoryManager?.majorRepositories?.count, 3, "stargazers_countが５０以上が３つ存在する")
-            XCTAssertEqual(self.repositoryManager?.majorRepositories?[0].name, "ccc", "stargazers_countが５０")
-            XCTAssertEqual(self.repositoryManager?.majorRepositories?[1].name, "ddd", "stargazers_countが５１")
-            XCTAssertEqual(self.repositoryManager?.majorRepositories?[2].name, "eee", "stargazers_countが５２")
+        self.repositoryViewModel?.load(user: "apple") {_ in
+            self.repositoryViewModel?.fetchMajorRepositories()
+            XCTAssertEqual(self.repositoryViewModel?.majorRepositories?.count, 3, "stargazers_countが５０以上が３つ存在する")
+            XCTAssertEqual(self.repositoryViewModel?.majorRepositories?[0].name, "ccc", "stargazers_countが５０")
+            XCTAssertEqual(self.repositoryViewModel?.majorRepositories?[1].name, "ddd", "stargazers_countが５１")
+            XCTAssertEqual(self.repositoryViewModel?.majorRepositories?[2].name, "eee", "stargazers_countが５２")
         }
     }
 
@@ -82,12 +82,12 @@ class GitHubRepositoryManagerTest: XCTestCase {
     func testFetchMajorRepositories() async {
         
         do {
-            try await self.repositoryManager?.load(user: "apple")
-            self.repositoryManager?.fetchMajorRepositories()
-            XCTAssertEqual(self.repositoryManager?.majorRepositories?.count, 3, "stargazers_countが５０以上が３つ存在する")
-            XCTAssertEqual(self.repositoryManager?.majorRepositories?[0].name, "ccc", "stargazers_countが５０")
-            XCTAssertEqual(self.repositoryManager?.majorRepositories?[1].name, "ddd", "stargazers_countが５１")
-            XCTAssertEqual(self.repositoryManager?.majorRepositories?[2].name, "eee", "stargazers_countが５２")
+            try await self.repositoryViewModel?.load(user: "apple")
+            self.repositoryViewModel?.fetchMajorRepositories()
+            XCTAssertEqual(self.repositoryViewModel?.majorRepositories?.count, 3, "stargazers_countが５０以上が３つ存在する")
+            XCTAssertEqual(self.repositoryViewModel?.majorRepositories?[0].name, "ccc", "stargazers_countが５０")
+            XCTAssertEqual(self.repositoryViewModel?.majorRepositories?[1].name, "ddd", "stargazers_countが５１")
+            XCTAssertEqual(self.repositoryViewModel?.majorRepositories?[2].name, "eee", "stargazers_countが５２")
         } catch {
             
         }
