@@ -8,22 +8,52 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    @State private var selection = 1
     @ObservedObject var viewModel: ContentViewModel
-    
+    @EnvironmentObject var dialogModel: DialogModel
+
     init(viewModel: ContentViewModel = ContentViewModel()) {
         self.viewModel = viewModel
     }
     
+    var repositoryViewModel: GitHubRepositoryViewModel = GitHubRepositoryViewModel()
+    
     var body: some View {
-        NavigationView {
-            NavigationLink(destination: GitHubRepositoriesView()) {
-                Text("GitHubRepositoris")
+        
+        TabView(selection: $selection) {
+            NavigationView {
+                NavigationLink(destination: GitHubRepositoriesView(repositoryViewModel: repositoryViewModel)) {
+                    Text("GitHubRepositoris")
+                }
+                .navigationTitle(viewModel.text)
+            }.navigationViewStyle(.stack)
+                .tabItem {
+                    Image(systemName: "house")
+                    Text("HOME")
+                }
+                .tag(1)
+
+            Text("Settings")
+                .tabItem {
+                    Image(systemName: "gear")
+                    Text("Settings")
+                }
+                .tag(2)
+        }
+        .onChange(of: selection) { selection in
+            switch selection {
+            case 1:
+                print("HOMEがタップされた")
+            case 2:
+                print("Settingsがタップされた")
+            default:
+                break
             }
-            .navigationTitle(viewModel.text)
-        }.navigationViewStyle(.stack)
+        }
     }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

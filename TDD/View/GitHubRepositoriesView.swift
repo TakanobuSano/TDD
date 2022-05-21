@@ -11,13 +11,10 @@ struct GitHubRepositoriesView: View {
     
     @State private var showingAlert = false
     @State private var alertMessage = ""
-    @ObservedObject var repositoryViewModel: GitHubRepositoryViewModel
+    @StateObject var repositoryViewModel: GitHubRepositoryViewModel
     var countOfmajorRepositories = 1
+    @EnvironmentObject var dialogModel: DialogModel
     
-    init(repositoryViewModel: GitHubRepositoryViewModel = GitHubRepositoryViewModel()) {
-        self.repositoryViewModel = repositoryViewModel
-    }
-
     var body: some View {
         List(self.repositoryViewModel.majorRepositories ?? [], id: \.name) { item in
             Text(item.name)
@@ -25,16 +22,19 @@ struct GitHubRepositoriesView: View {
         .navigationTitle(repositoryViewModel.userName)
         .task {
             /// クロージャ
+            dialogModel.dialogType = .loading
             self.repositoryViewModel.load(user: "apple") {error in
                 if error != nil {
                     showingAlert = true
                     self.alertMessage = String(describing: error)
                 }
                 self.repositoryViewModel.fetchMajorRepositories()
+                dialogModel.dialogType = .none
             }
         }
         .refreshable {
             /// Swift Concurrencyのasync/await
+            dialogModel.dialogType = .loading
             do {
                 try await self.repositoryViewModel.load(user: "google")
             } catch {
@@ -42,6 +42,7 @@ struct GitHubRepositoriesView: View {
                 self.alertMessage = String(describing: error)
             }
             self.repositoryViewModel.fetchMajorRepositories()
+            dialogModel.dialogType = .none
         }
         .alert(isPresented: $showingAlert) {
             Alert(title: Text(alertMessage))
@@ -50,7 +51,7 @@ struct GitHubRepositoriesView: View {
 }
 
 struct GitHubRepositoriesView_Previews: PreviewProvider {
-    
+        
     class MockGithubAPIClient: GithubAPIClientProtocol {
         
         var mockRepositories: [GitHubRepository]
@@ -84,5 +85,9 @@ struct GitHubRepositoriesView_Previews: PreviewProvider {
         let repositoryViewModel = GitHubRepositoryViewModel(client: mockAPIClient)
 
         GitHubRepositoriesView(repositoryViewModel: repositoryViewModel)
+            .environmentObject({ () -> DialogModel in
+                let envObj = DialogModel()
+                return envObj
+            }() )
     }
 }
