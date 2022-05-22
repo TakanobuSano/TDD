@@ -50,6 +50,18 @@ struct ContentView: View {
                 break
             }
         }
+        // スプラッシュ画面
+        .splashView {
+            // カスタムビュー
+            ZStack {
+                   Color.blue
+                   Text("スプラッシュ")
+                     .fontWeight(.bold)
+                     .font(.system(size: 24))
+                     .foregroundColor(.white)
+                 }
+            .edgesIgnoringSafeArea(.all)
+        }
     }
 }
 

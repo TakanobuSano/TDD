@@ -24,6 +24,8 @@
 		2C7B7413281BAE4800451A79 /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7B7412281BAE4800451A79 /* DateModel.swift */; };
 		2C7B7415281BB9F500451A79 /* DateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7B7414281BB9F500451A79 /* DateViewModel.swift */; };
 		2C7B7417281BBE6200451A79 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7B7416281BBE6200451A79 /* DateTests.swift */; };
+		2CB4D67C2839DDF300F485DC /* SplashModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4D67B2839DDF300F485DC /* SplashModifier.swift */; };
+		2CB4D67E2839E22D00F485DC /* DialogModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4D67D2839E22D00F485DC /* DialogModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		2C7B7412281BAE4800451A79 /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 		2C7B7414281BB9F500451A79 /* DateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewModel.swift; sourceTree = "<group>"; };
 		2C7B7416281BBE6200451A79 /* DateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTests.swift; sourceTree = "<group>"; };
+		2CB4D67B2839DDF300F485DC /* SplashModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashModifier.swift; sourceTree = "<group>"; };
+		2CB4D67D2839E22D00F485DC /* DialogModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +155,7 @@
 				2C7B740E281B8A5C00451A79 /* ContentViewModel.swift */,
 				2C7B7414281BB9F500451A79 /* DateViewModel.swift */,
 				2C7B7412281BAE4800451A79 /* DateModel.swift */,
-				2C2432BD282F8F3600A7D3FA /* DialogModel.swift */,
+				2CB4D67F2839E28600F485DC /* ViewModifire */,
 				2C149A822820EAE600A0A0C8 /* View */,
 				2C149A7B281E6A8900A0A0C8 /* ViewModel */,
 				2C149A78281E4B2900A0A0C8 /* APIClient */,
@@ -187,6 +191,16 @@
 				2C7B73FD281B86B400451A79 /* TDDUITestsLaunchTests.swift */,
 			);
 			path = TDDUITests;
+			sourceTree = "<group>";
+		};
+		2CB4D67F2839E28600F485DC /* ViewModifire */ = {
+			isa = PBXGroup;
+			children = (
+				2CB4D67B2839DDF300F485DC /* SplashModifier.swift */,
+				2CB4D67D2839E22D00F485DC /* DialogModifier.swift */,
+				2C2432BD282F8F3600A7D3FA /* DialogModel.swift */,
+			);
+			path = ViewModifire;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C149A76281E456600A0A0C8 /* GitHubRepository.swift in Sources */,
+				2CB4D67C2839DDF300F485DC /* SplashModifier.swift in Sources */,
 				2C2432BE282F8F3600A7D3FA /* DialogModel.swift in Sources */,
 				2C149A7A281E4B8700A0A0C8 /* GithubAPIClient.swift in Sources */,
 				2C7B73E3281B86B200451A79 /* ContentView.swift in Sources */,
@@ -328,6 +343,7 @@
 				2C7B7415281BB9F500451A79 /* DateViewModel.swift in Sources */,
 				2C7B73E1281B86B200451A79 /* TDDApp.swift in Sources */,
 				2C149A7D281E6ABD00A0A0C8 /* GitHubRepositoryViewModel.swift in Sources */,
+				2CB4D67E2839E22D00F485DC /* DialogModifier.swift in Sources */,
 				2C7B740F281B8A5C00451A79 /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
