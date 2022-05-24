@@ -84,10 +84,19 @@ struct GitHubRepositoriesView_Previews: PreviewProvider {
         let mockAPIClient = MockGithubAPIClient(repositories: mockRepositories)
         let repositoryViewModel = GitHubRepositoryViewModel(client: mockAPIClient)
 
-        GitHubRepositoriesView(repositoryViewModel: repositoryViewModel)
-            .environmentObject({ () -> DialogModel in
-                let envObj = DialogModel()
-                return envObj
-            }() )
+        Group {
+            GitHubRepositoriesView(repositoryViewModel: repositoryViewModel)
+                .environmentObject({ () -> DialogModel in
+                    let envObj = DialogModel()
+                    envObj.dialogType = .none
+                    return envObj
+                }() )
+            GitHubRepositoriesView(repositoryViewModel: repositoryViewModel)
+                .environmentObject({ () -> DialogModel in
+                    let envObj = DialogModel()
+                    envObj.dialogType = .loading
+                    return envObj
+                }() )
+        }
     }
 }
